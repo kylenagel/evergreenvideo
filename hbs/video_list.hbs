@@ -1,0 +1,41 @@
+<div class="col col-sm-12">
+	<h3>VIDEOS BY: {{type}}</h3>
+
+	<div class="row video_cards">
+		{{#each results}}
+		<div class="col-sm-3">
+			<div class="card">
+				<div class="card-block">
+					{{#if_title_section ../type}}
+					<h4 class="card-title">{{parse_html display_title}}</h4>
+					{{else}}
+					<h4 class="card-title">{{parse_html title}}</h4>
+					{{/if_title_section}}
+					{{#if_title_section ../type}}
+					<div class="card-text"></div>
+					{{else}}
+					<div class="card-text">
+						<ul>
+							{{#each matching_keywords}}
+							<li>{{parse_html this}}</li>
+							{{/each}}
+						</ul>
+					</div>
+					{{/if_title_section}}
+					{{#if storyurl}}
+					<div class="reference-story">
+						<a href="{{storyurl}}" target="_blank">Related story</a>
+					</div>
+					{{/if}}
+					{{#if anvatoid}}
+					<a href="http://mcp.anvato.com/cms/editvideo/{{anvatoid}}" class="btn btn-primary" target="_blank">Get the video</a>
+					{{else}}
+					<a href="{{dropboxurl}}" class="btn btn-primary" target="_blank">Get the video</a>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>
+
